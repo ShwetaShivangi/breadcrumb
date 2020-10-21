@@ -21,11 +21,14 @@ import org.hippoecm.hst.component.support.bean.BaseHstComponent;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
+import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.core.request.ComponentConfiguration;
 
 /**
  * Standard HST Breadcrumb component.
  */
+
+@ParametersInfo(type = BreadcrumbConfigInfo.class)
 public class BreadcrumbComponent extends BaseHstComponent {
 
     private BreadcrumbProvider breadcrumbProvider;
@@ -33,6 +36,9 @@ public class BreadcrumbComponent extends BaseHstComponent {
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
         super.doBeforeRender(request, response);
+        BreadcrumbConfigInfo info = getComponentParametersInfo(request);
+        String Separator = info.getSeparator();
+        request.setAttribute("separator", Separator);
         request.setAttribute(BreadcrumbProvider.ATTRIBUTE_NAME, breadcrumbProvider.getBreadcrumb(request));
     }
 
