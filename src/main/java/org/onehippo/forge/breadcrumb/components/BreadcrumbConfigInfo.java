@@ -5,8 +5,11 @@ import org.hippoecm.hst.core.parameters.Parameter;
 public interface BreadcrumbConfigInfo {
 	
 	@Parameter(name = "separator",
-            defaultValue = "»",
             displayName = "Separator")
 	String getSeparator();
+
+	@Parameter(name = "addTrailingDocumentOnly",
+            displayName = "addTrailingDocumentOnly")
+	boolean getDisplayOption();
 
 }
