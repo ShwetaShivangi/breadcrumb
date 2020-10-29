@@ -96,7 +96,7 @@ public class BreadcrumbProvider {
     public BreadcrumbProvider(final BaseHstComponent component) {
         this.component = component;
         this.breadcrumbMenus = component.getComponentParameter(PARAMETER_MENUS);
-        this.breadcrumbSeparator = component.getComponentLocalParameter(PARAMETER_SEPARATOR);
+        this.breadcrumbSeparator = component.getComponentParameter(PARAMETER_SEPARATOR);
         this.addContentBased = Boolean.valueOf(component.getComponentParameter(PARAMETER_ADD_CONTENT_BASED));
         this.linkNotFoundMode = LinkNotFoundMode.safeValueOf(component.getComponentParameter(PARAMETER_LINK_NOT_FOUND_MODE));
     }
